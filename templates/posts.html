@@ -3,40 +3,36 @@
 {% block head %}
 <title>Posts</title>
 
- {% endblock  %}
+{% endblock %}
 
 
 
 {% block body %}
 
 <h1>All Posts</h1>
-<hr> 
-<h1>Create New Blog Post</h1>
-<form action="/posts" method="POST">
-    Title <input type="text" name="title" id="title">
-    <br/>
-    Author <input type="text" name="author" id="author">
-    <br/>
-    Post <input type="text" name="content" id="content">
-    <br/>
-    <input type="submit" value="post">
+<hr>
 
 
-</form>
+    <h1>Create New Blog Post</h1>
+    <a class="btn btn-success float-right" href="/posts/new" >+ New Post</a>
+
+
 <hr>
 {% for post in posts %}
-        <h2>{{post.title}}</h2>
-        <br/>
-        {% if post.author %}
-            <h3>Post by {{post.author}}</h3>
-        {% else %}
-            <h3>NA</h3>
-        {% endif %}
-        <br/>
-        <h2>{{post.content}}</h2>
-        <a href="/posts/delete/{{post.id}}" >Delete</a>
-        <a href="/posts/edit/{{post.id}}" >Edit</a>
-        <hr>
+<br />
+<h2>{{post.title}}</h2>
+<br />
+{% if post.author %}
+<small>Written by {{post.author}} on {{post.date_posted}}</small>
+{% else %}
+<small>Written by Unknown on {{post.date_posted}}</small>
+{% endif %}
+<br />
+<br />
+<h6 style="white-space:pre-wrap;">{{post.content}}</h6>
+<a class="btn btn-danger" href="/posts/delete/{{post.id}}">Delete</a>
+<a class="btn btn-primary" href="/posts/edit/{{post.id}}">Edit</a>
+<hr>
 
 {% endfor %}
-{% endblock  %} 
+{% endblock %}

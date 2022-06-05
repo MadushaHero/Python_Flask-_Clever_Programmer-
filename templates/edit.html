@@ -12,14 +12,23 @@
 <h1>All Posts</h1>
 <hr> 
 <h1>Edit Post</h1>
-<form action="/posts/edit/{{post.id}}" method="POST">
-    Title <input type="text" name="title" id="title" value="{{post.title}}">
-    <br/>
-    Author <input type="text" name="author" id="author" value="{{post.author}}">
-    <br/>
-    Post <input type="text" name="content" id="content" value="{{post.content}}">
-    <br/>
-    <input type="submit" value="Save">
+    
+    <label for="Title">Title:</label>
+    <input class="form-control" name="title" id="title" type="search" placeholder="Enter Title" value="{{post.title}}"aria-label="Search">
+    <br />
+    
+    <label for="author">Author::</label>
+    <input class="form-control" name="author" id="author" type="search" placeholder="Enter Author" value="{{post.author}}" aria-label="Search">
+
+    <br />
+   
+    
+    
+    <label for="content">Post:</label>
+    <textarea class="form-control" name="content"  rows="3"   aria-label="Enter Content">{{post.content}}</textarea>
+
+    <br />
+    <input type="submit" value="save">
 
 
 </form>
